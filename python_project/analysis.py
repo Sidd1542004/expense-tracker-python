@@ -11,7 +11,7 @@ def monthly_summary():
 
     summary = df.groupby("Month")["Amount"].sum()
 
-    print("\n📅 Monthly Summary:")
+    print("\n Monthly Summary:")
     for month, total in summary.items():
         print(f"{month} → ₹{total}")
 
@@ -50,4 +50,4 @@ def highest_category():
     max_category = category_sum.idxmax()
     max_value = category_sum.max()
 
-    print(f"\n💸 Highest spending category: {max_category} (₹{max_value})")
+    print(f"\ Highest spending category: {max_category} (₹{max_value})")
