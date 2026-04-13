@@ -7,7 +7,7 @@ from datetime import datetime
 FILE = "expenses.csv"
 BUDGET_FILE = "budget.txt"
 
-# ---------------- ADD EXPENSE ----------------
+# ADD EXPENSE 
 def add_expense():
     date = date_entry.get()
     category = category_entry.get()
@@ -30,7 +30,7 @@ def add_expense():
 
     messagebox.showinfo("Success", "Expense Added!")
 
-# ---------------- SET BUDGET ----------------
+# SET BUDGET 
 def set_budget():
     budget = budget_entry.get()
 
@@ -39,7 +39,7 @@ def set_budget():
 
     messagebox.showinfo("Success", "Budget Set!")
 
-# ---------------- CHECK INSIGHTS ----------------
+#CHECK INSIGHTS 
 def show_insights():
     import pandas as pd
 
@@ -66,13 +66,13 @@ def show_insights():
 
     if budget > 0:
         if total > budget:
-            msg += "\n⚠️ Budget Exceeded!"
+            msg += "\n Budget Exceeded!"
         else:
-            msg += "\n✅ Within Budget"
+            msg += "\n Within Budget"
 
     messagebox.showinfo("Insights", msg)
 
-# ---------------- UI ----------------
+# UI 
 root = tk.Tk()
 root.title("Expense Tracker")
 
