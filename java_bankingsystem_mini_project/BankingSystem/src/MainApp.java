@@ -1,4 +1,3 @@
-
 import java.sql.*;
 import javax.swing.*;
 import java.awt.*;
@@ -18,10 +17,7 @@ class DBConnection {
         }
     }
 }
-
-// ===============================
 // LOGIN GUI
-// ===============================
 class LoginFrame extends JFrame {
     JTextField userField;
     JPasswordField passField;
@@ -77,7 +73,7 @@ class LoginFrame extends JFrame {
 
             if (rs.next()) {
 
-    // ✅ Save login history
+    //Save login history
     PreparedStatement logPs = con.prepareStatement(
         "INSERT INTO login_history(username) VALUES (?)"
     );
@@ -135,10 +131,7 @@ class LoginFrame extends JFrame {
         }
     }
 }
-
-// ===============================
 // DASHBOARD GUI
-// ===============================
 class DashboardFrame extends JFrame {
     String username;
 
@@ -290,7 +283,7 @@ class DashboardFrame extends JFrame {
 
         int senderId = getUserId(con);
 
-        // 🔍 Get receiver ID
+        //Get receiver ID
         PreparedStatement findUser = con.prepareStatement(
             "SELECT id FROM users WHERE username=?"
         );
@@ -304,7 +297,7 @@ class DashboardFrame extends JFrame {
 
         int receiverId = rs.getInt("id");
 
-        // 💰 Check sender balance
+        //Check sender balance
         PreparedStatement check = con.prepareStatement(
             "SELECT balance FROM accounts WHERE user_id=?"
         );
@@ -317,7 +310,7 @@ class DashboardFrame extends JFrame {
             return;
         }
 
-        // 🔄 Deduct from sender
+        //Deduct from sender
         PreparedStatement debit = con.prepareStatement(
             "UPDATE accounts SET balance = balance - ? WHERE user_id=?"
         );
@@ -325,7 +318,7 @@ class DashboardFrame extends JFrame {
         debit.setInt(2, senderId);
         debit.executeUpdate();
 
-        // ➕ Add to receiver
+        //Add to receiver
         PreparedStatement credit = con.prepareStatement(
             "UPDATE accounts SET balance = balance + ? WHERE user_id=?"
         );
@@ -333,7 +326,7 @@ class DashboardFrame extends JFrame {
         credit.setInt(2, receiverId);
         credit.executeUpdate();
 
-        // 📝 Save transaction (sender)
+        //Save transaction (sender)
         saveTransaction(con, senderId, "TRANSFER_OUT", amount, receiver);
         saveTransaction(con, receiverId, "TRANSFER_IN", amount, username);
         JOptionPane.showMessageDialog(this, "Transfer Successful!");
@@ -366,10 +359,10 @@ class DashboardFrame extends JFrame {
 
         ResultSet rs = ps.executeQuery();
 
-        // Table columns
+        //Table columns
         String[] columns = {"Type", "Amount", "Receiver", "Date"};
 
-        // Table data
+        //Table data
         java.util.List<Object[]> dataList = new java.util.ArrayList<>();
 
         while (rs.next()) {
@@ -381,18 +374,18 @@ class DashboardFrame extends JFrame {
             });
         }
 
-        // Convert list to array
+        //Converting list to array
         Object[][] data = new Object[dataList.size()][3];
         for (int i = 0; i < dataList.size(); i++) {
             data[i] = dataList.get(i);
         }
 
-        // Create JTable
+        //Create JTable
         javax.swing.JTable table = new javax.swing.JTable(data, columns);
 
         javax.swing.JScrollPane scrollPane = new javax.swing.JScrollPane(table);
 
-        // Show in new window
+        //Show in new window
         javax.swing.JFrame frame = new javax.swing.JFrame("Transaction History");
         frame.add(scrollPane);
         frame.setSize(500, 300);
@@ -404,10 +397,6 @@ class DashboardFrame extends JFrame {
 }
 
 }
-
-// ===============================
-// MAIN CLASS
-// ===============================
 public class MainApp {
     public static void main(String[] args) {
         new LoginFrame();
