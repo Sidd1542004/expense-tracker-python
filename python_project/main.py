@@ -13,7 +13,7 @@ def add_expense():
         writer = csv.writer(file)
         writer.writerow([date, category, amount, description])
 
-    print("✅ Expense added successfully!")
+    print("Expense added successfully!")
 
 def menu():
     while True:
