@@ -1,46 +1,33 @@
-# 🏦 Java Banking System (GUI + MySQL)
-
-## 📌 Overview
-
+# Java Banking System (GUI + MySQL)
+## Overview
 This project is a **Java-based Banking System Simulation** built using **Core Java, Swing GUI, and MySQL (JDBC)**.
 It simulates real-world banking operations such as account management, transactions, authentication, and transaction tracking.
-
 ---
-
-## 🚀 Features
-
-### 👤 Authentication
-
+## Features
+### Authentication
 * User Registration
 * Secure Login System
 * Input validation (no empty username/password)
 * Login History Tracking (with timestamp)
-
 ---
 
-### 💰 Banking Operations
-
+### Banking Operations
 * Deposit Money
 * Withdraw Money
 * Transfer Money between users
 * Balance Inquiry
 
 ---
-
-### 📊 Transaction Management
-
+### Transaction Management
 * Transaction history stored in database
 * JTable UI for displaying transactions
 * Tracks:
-
   * Deposit
   * Withdraw
   * Transfer (Sender & Receiver)
-
 ---
 
-### 🗄️ Database Integration
-
+### Database Integration
 * MySQL Database
 * JDBC Connectivity
 * Tables:
@@ -52,8 +39,7 @@ It simulates real-world banking operations such as account management, transacti
 
 ---
 
-## 🛠️ Technologies Used
-
+## Technologies Used
 * **Java (Core Java, OOP)**
 * **Swing (GUI)**
 * **JDBC (Database Connectivity)**
@@ -61,9 +47,7 @@ It simulates real-world banking operations such as account management, transacti
 * **VS Code**
 
 ---
-
-## 📂 Project Structure
-
+## Project Structure
 ```
 BankingSystem/
 ├── src/
@@ -77,10 +61,8 @@ BankingSystem/
 
 ---
 
-## ⚙️ Database Setup
-
+## Database Setup
 Run the following SQL queries:
-
 ```sql
 CREATE DATABASE bank_system;
 USE bank_system;
@@ -116,26 +98,24 @@ CREATE TABLE login_history (
 
 ---
 
-## ▶️ How to Run
-
-### 1️⃣ Clone the repository
+## How to Run
+### Clone the repository
 
 ```
 git clone https://github.com/your-username/banking-system.git
 cd banking-system
 ```
 
-### 2️⃣ Add MySQL Connector
+### Add MySQL Connector
 
 * Download MySQL Connector/J
 * Place `.jar` file inside `lib/`
 
 ---
 
-### 3️⃣ Configure Database
+### Configure Database
 
 Update in `DBConnection`:
-
 ```java
 "jdbc:mysql://localhost:3306/bank_system",
 "root",
@@ -144,7 +124,7 @@ Update in `DBConnection`:
 
 ---
 
-### 4️⃣ Compile and Run
+### Compile and Run
 
 ```bash
 javac -cp "lib/*" src/MainApp.java
@@ -153,8 +133,7 @@ java -cp "lib/*;src" MainApp
 
 ---
 
-## 🧪 How to Use
-
+## How to Use
 1. Register a new user
 2. Login using credentials
 3. Perform:
@@ -167,8 +146,7 @@ java -cp "lib/*;src" MainApp
 
 ---
 
-## 🎯 Key Concepts Used
-
+## Key Concepts Used
 * Object-Oriented Programming (OOP)
 * JDBC (PreparedStatement, ResultSet)
 * GUI Development (Swing)
@@ -177,8 +155,7 @@ java -cp "lib/*;src" MainApp
 
 ---
 
-## 🔥 Advanced Features
-
+## Advanced Features
 * Login History Tracking
 * Transfer with dual transaction recording
 * JTable UI for professional display
@@ -187,8 +164,7 @@ java -cp "lib/*;src" MainApp
 
 ---
 
-## 📈 Future Enhancements
-
+## Future Enhancements
 * Password Encryption (SHA-256)
 * Transaction rollback (ACID properties)
 * JavaFX UI upgrade
@@ -197,20 +173,16 @@ java -cp "lib/*;src" MainApp
 
 ---
 
-## 🎓 Conclusion
-
+## Conclusion
 This project demonstrates a **real-world banking system simulation** with persistent storage, GUI interaction, and secure operations using Java and MySQL.
-
 ---
 
-## 👨‍💻 Author
-
+## Author
 * Siddharth V
 * B.E CSE Student
 * Passionate about Web Development & Secure Systems
-
 ---
 
-## ⭐ If you like this project
+## If you like this project
 
 Give it a ⭐ on GitHub!
